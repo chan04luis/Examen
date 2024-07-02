@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login de Usuario</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100">
+  <div class="container">
+    <div class="form-container">
+      <h2 class="form-title">Login de Usuario</h2>
+      <form id="loginForm" class="mb-4">
+        <div class="mb-4">
+          <label for="loginNombre" class="form-label">Nombre</label>
+          <input type="text" id="loginNombre" name="nombre" class="form-input" required>
+        </div>
+        <div class="mb-4">
+          <label for="loginApellido" class="form-label">Apellido</label>
+          <input type="text" id="loginApellido" name="apellido" class="form-input" required>
+        </div>
+        <button type="submit" class="form-button">Iniciar Examen</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const nombre = document.getElementById('loginNombre').value;
+      const apellido = document.getElementById('loginApellido').value;
+
+      // Almacena nombre y apellido en localStorage
+      localStorage.setItem('nombreUsuario', nombre);
+      localStorage.setItem('apellidoUsuario', apellido);
+
+      // Redirige a la página del examen
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
